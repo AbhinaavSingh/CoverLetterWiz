@@ -44,9 +44,9 @@ Cover Letter Wiz is a Python script designed to streamline the process of creati
    ```bash
    cd Cover-Letter-Wiz
    ```
-3. Install the required libraries:
+3. Install the required libraries from the requirements.txt file::
    ```bash
-   pip install openai PyPDF2
+   pip install -r requirements.txt
    ```
 
 4. Add your OpenAI API key to `open_ai_key.txt`.
