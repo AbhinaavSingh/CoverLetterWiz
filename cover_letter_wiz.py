@@ -3,7 +3,7 @@ import PyPDF2
 from openai import OpenAI
 
 # Set the path to your resume PDF as high up as possible
-resume_path = "Path_To_Resume.pdf"
+resume_path = "Resume_Path.pdf"
 
 # Function to read the API key from a file
 def read_api_key(file_path):
