@@ -1,6 +1,7 @@
 import openai
 import PyPDF2
 from openai import OpenAI
+from fpdf import FPDF
 
 # Set the path to your resume PDF as high up as possible
 resume_path = "Resume_Path.pdf"
@@ -82,6 +83,25 @@ def save_cover_letter_to_file(cover_letter, company_name, role_name):
     except Exception as e:
         print(f"An error occurred while saving the file: {str(e)}")
 
+def save_cover_letter_to_pdf(cover_letter, company_name, role_name):
+    file_name = f"CoverLetter_{company_name}_{role_name}.pdf"
+    pdf = FPDF()
+    pdf.set_auto_page_break(auto=True, margin=15)
+    pdf.add_page()
+
+    # Set font and add title
+    pdf.set_font("Arial", size=12)
+
+    # Split the cover letter text by line breaks to add them separately
+    for line in cover_letter.split('\n'):
+        pdf.multi_cell(0, 10, line)
+
+    try:
+        pdf.output(file_name)
+        print(f"Cover letter saved as {file_name}")
+    except Exception as e:
+        print(f"An error occurred while saving the PDF file: {str(e)}")
+
 if __name__ == "__main__":
     # Define the path to your job description text file
     job_description_file_path = "job_description.txt"
@@ -110,7 +130,9 @@ if __name__ == "__main__":
             Here is my resume:
             {resume_content}
             
-            Based on my resume and the job description, please write a personalized cover letter for the position of {role_name.replace('_', ' ')} at {company_name}.
+            Please generate a cover letter in the following format:
+            1. A brief introductory paragraph.
+            2. Three bullet points that highlight my qualifications, skills, or experiences that make me suitable for this role.
             """
 
             # Get the cover letter response from ChatGPT
@@ -119,5 +141,8 @@ if __name__ == "__main__":
             # Print the generated cover letter
             print(result)
 
-            # Save the cover letter to a file
+            # Save the cover letter to a .txt file
             save_cover_letter_to_file(result, company_name, role_name)
+
+            # Save the cover letter to a .pdf file
+            save_cover_letter_to_pdf(result, company_name, role_name)
