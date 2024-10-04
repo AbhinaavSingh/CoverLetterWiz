@@ -24,7 +24,7 @@ Cover Letter Wiz is a Python script designed to streamline the process of creati
 
 - **`open_ai_key.txt`**: Contains your OpenAI API key.
 - **`job_description.txt`**: Contains the job description text.
-- **`Afia_Khan_Resume.pdf`**: Your resume in PDF format.
+- **`Resume_Path.pdf`**: Your resume in PDF format.
 - **Generated Cover Letter**: The generated cover letter is saved as a `.txt` file in the format `CoverLetter_<company_name>_<role_name>.txt`.
 
 ## Requirements
