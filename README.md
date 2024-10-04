@@ -51,7 +51,7 @@ Cover Letter Wiz is a Python script designed to streamline the process of creati
 
 4. Add your OpenAI API key to `open_ai_key.txt`.
 
-5. Replace the default `job_description.txt` and `Afia_Khan_Resume.pdf` files with your own job description and resume.
+5. Replace the default `job_description.txt` and `Resume_Path.pdf` files with your own job description and resume.
 
 ## Usage
 
